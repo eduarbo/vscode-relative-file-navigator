@@ -1,26 +1,61 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'
+import * as fs from 'fs'
+import * as path from 'path'
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  const disposable = vscode.commands.registerCommand('relativeFileExplorer.open', async () => {
+    const currentEditor = vscode.window.activeTextEditor
+    if (currentEditor) {
+      const currentFilePath = currentEditor.document.uri.fsPath
+      const currentDirectoryPath = path.dirname(currentFilePath)
+      await showFilesInDirectory(currentDirectoryPath)
+    } else {
+      await vscode.window.showErrorMessage('No hay archivo abierto en el editor')
+    }
+  })
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "relative-file-explorer" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('relative-file-explorer.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from !');
-	});
-
-	context.subscriptions.push(disposable);
+  context.subscriptions.push(disposable)
 }
 
-// This method is called when your extension is deactivated
+async function showFilesInDirectory(directoryPath: string) {
+  const files = await fs.promises.readdir(directoryPath, { withFileTypes: true })
+  try {
+    const items = files.map((file) => {
+      const label = file.name
+      const description = file.isDirectory() ? 'Dir' : 'Archivo'
+      const uri = vscode.Uri.file(path.join(directoryPath, file.name))
+
+      return { label, description, uri, file }
+    })
+
+    const selectedItem = await vscode.window.showQuickPick(items, {
+      placeHolder: 'Selecciona un archivo o directorio',
+    })
+
+    if (selectedItem) {
+      if (selectedItem.file.isDirectory()) {
+        await showFilesInDirectory(selectedItem.uri.fsPath)
+      } else {
+        await openFile(selectedItem.uri)
+      }
+    }
+  } catch (error) {
+    await handleError('Error al leer el directorio', error)
+  }
+}
+
+async function openFile(filePath: vscode.Uri) {
+  try {
+    const doc = await vscode.workspace.openTextDocument(filePath)
+    await vscode.window.showTextDocument(doc)
+  } catch (error: unknown) {
+    await handleError('Error al abrir el archivo', error)
+  }
+}
+
+async function handleError(message: string, error: unknown) {
+    const errorMessage = error instanceof Error ? `${message}: ${error.message}` : message
+    await vscode.window.showErrorMessage(errorMessage)
+}
+
 export function deactivate() {}
