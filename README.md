@@ -1,6 +1,6 @@
-# relative-file-explorer README
+# relative-file-navigator README
 
-This is the README for your extension "relative-file-explorer". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "relative-file-navigator". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 
