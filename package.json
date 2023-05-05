@@ -3,7 +3,22 @@
   "displayName": "Relative File Navigator",
   "description": "Easily access and open files located in the same directory as the currently open file",
   "icon": "assets/icon.png",
-  "keywords": ["relative", "file", "files", "navigation", "search", "filter"],
+  "homepage": "https://github.com/eduarbo/vscode-relative-file-navigator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eduarbo/vscode-relative-file-navigator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eduarbo/vscode-relative-file-navigator/issues"
+  },
+  "keywords": [
+    "relative",
+    "file",
+    "files",
+    "navigation",
+    "search",
+    "filter"
+  ],
   "publisher": "eduarbo",
   "license": "MIT",
   "version": "0.0.1",

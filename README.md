@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/visual-studio-marketplace/v/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
-[![License](https://img.shields.io/github/license/eduarbo/relative-file-navigator)](https://github.com/eduarbo/relative-file-navigator/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/eduarbo/relative-file-navigator)](https://github.com/eduarbo/vscode-relative-file-navigator/blob/main/LICENSE)
 
 Relative File Navigator is a VSCode extension that allows you to easily access and open files located in the same directory as the currently open file. This comes in handy when you're working on a file and need to access related files, such as navigating between style and implementation files in a component-based project.
 
@@ -29,6 +29,7 @@ Relative File Navigator can be installed via the VS Code [Marketplace](https://m
 
 ## TODO
 - [X] Add [localization](https://github.com/microsoft/vscode-l10n)
+- [ ] [Bundle extension](https://aka.ms/vscode-bundle-extension)
 - [ ] Display file-type icons (not possible for now, keep an eye on: https://github.com/microsoft/vscode/issues/59826)
 - [ ] Add tests
 
@@ -38,7 +39,7 @@ If you have any suggestions or find any bugs, please feel free to create an issu
 
 ## License
 
-- Licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+- Licensed under the MIT License. See the [LICENSE](https://raw.githubusercontent.com/eduarbo/vscode-relative-file-navigator/main/LICENSE) file for details.
 - [Icon](assets/icon.png) made by <a href="https://www.flaticon.com/free-icons/html" title="html icons">Freepik - Flaticon</a>.
 
 ## Changelog
