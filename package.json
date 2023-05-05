@@ -2,6 +2,7 @@
   "name": "relative-file-navigator",
   "displayName": "Relative File Navigator",
   "description": "Easily access and open files located in the same directory as the currently open file",
+  "icon": "assets/icon.png",
   "keywords": ["relative", "file", "files", "navigation", "search", "filter"],
   "publisher": "eduarbo",
   "license": "MIT",

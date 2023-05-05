@@ -14,7 +14,7 @@ Relative File Navigator is a VSCode extension that allows you to easily access a
 
 ### Available Commands
 
-- `Open Relative File Navigator`: Open a Quick Pick
+- `Open Relative File Navigator`: Open a Quick Pick dialog showing the files and directories in the same directory as the current file
 
 ## Installation
 
