@@ -43,14 +43,14 @@ async function showFilesInDirectory(directoryPath: string, history: string[]) {
       // account that this could increase the load time
       const uri = vscode.Uri.file(path.join(directoryPath, file.name))
       // const buttons = !isDirectory ? [new vscode.ThemeIcon('split-horizontal')] : []
-      const buttons = !isDirectory ? [{ iconPath: ThemeIcons.split_horizontal, tooltip: vscode.l10n.t('Open to the side') }] : []
-      // const buttons = []
+      const buttons = !isDirectory
+        ? [{ iconPath: ThemeIcons.split_horizontal, tooltip: vscode.l10n.t('Open to the side') }]
+        : []
 
       return { label, uri, isDirectory, buttons }
     })
 
     // Add the parent directory if the current directory is not the root directory
-    // TODO also check if the path has reached the root of the workspace
     const parentDirectoryPath = path.dirname(directoryPath)
     if (parentDirectoryPath !== directoryPath) {
       items.unshift({
