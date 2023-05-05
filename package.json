@@ -1,7 +1,10 @@
 {
   "name": "relative-file-navigator",
   "displayName": "Relative File Navigator",
-  "description": "Search and open files in the same directory as the currently open file",
+  "description": "Easily access and open files located in the same directory as the currently open file",
+  "keywords": ["relative", "file", "files", "navigation", "search", "filter"],
+  "publisher": "eduarbo",
+  "license": "MIT",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.77.0"
