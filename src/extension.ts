@@ -36,7 +36,7 @@ async function showFilesInDirectory(directoryPath: string, history: string[]) {
       const isDirectory = file.isDirectory()
       // List of ThemeIcon ids that can be rendered inside labels and descriptions:
       // https://code.visualstudio.com/api/references/icons-in-labels#icon-listing
-      const icon = isDirectory ? codicons.folder : codicons.file
+      const icon = isDirectory ? codicons.folder : codicons.list_selection
       const label = `${icon} ${file.name}`
       // TODO use fs.state to bring the file size and other useful data that
       // can be displayed in `description` or `detail` props. Just take into

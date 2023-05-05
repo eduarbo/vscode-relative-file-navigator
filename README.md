@@ -8,9 +8,8 @@ Relative File Navigator is a VSCode extension that allows you to easily access a
 
 ## Features
 
-- Quickly browse and open files in the same directory as the currently open file
-- Simple and intuitive interface
-- Perfect for navigating between related files in component-based projects
+- Quickly browse and open files in the same directory as the currently open file, it's perfect for navigating between related files in component-based projects
+- `Back` button for navigaing to previously opened folders
 
 ### Available Commands
 
