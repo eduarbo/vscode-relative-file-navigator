@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [0.2.3] - 2023-05-05
+- Embed demo video to see if it is shown in the Marketplace
+
 ## [0.2.2] - 2023-05-05
 - Add demo video to the README
 
