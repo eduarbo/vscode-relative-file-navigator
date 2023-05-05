@@ -18,7 +18,7 @@ Relative File Navigator is a VSCode extension that allows you to easily access a
 
 ## Installation
 
-Relative File Navigator can be installed via the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=relative-file-navigator).
+Relative File Navigator can be installed via the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator).
 
 ## Usage
 
