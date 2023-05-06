@@ -5,6 +5,7 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+.vscode-test/*
 node_modules/*
 out/*
 dist/*
