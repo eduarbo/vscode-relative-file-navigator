@@ -33,6 +33,7 @@ Relative File Navigator can be installed via the VS Code [Marketplace](https://m
 - [ ] [Bundle extension](https://aka.ms/vscode-bundle-extension)
 - [ ] Display file-type icons (not possible for now, keep an eye on: https://github.com/microsoft/vscode/issues/59826)
 - [ ] Add tests
+- [ ] Add option to group folders and move them to the top
 
 ## Contributing
 
