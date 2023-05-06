@@ -21,7 +21,7 @@
   ],
   "publisher": "eduarbo",
   "license": "MIT",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "engines": {
     "vscode": "^1.77.0"
   },
@@ -29,7 +29,7 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./out/extension.js",
+  "main": "./dist/main.js",
   "l10n": "./l10n",
   "contributes": {
     "commands": [
