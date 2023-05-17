@@ -18,14 +18,15 @@
     },
     {
       "type": "npm",
-      "script": "test-compile",
-      "problemMatcher": "$tsc-watch",
-      "isBackground": true,
-      "presentation": {
-        "reveal": "never",
-        "group": "watchers"
+      "script": "test",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
       },
-      "group": "build"
+      "presentation": {
+        "reveal": "always"
+      }
     }
   ]
 }

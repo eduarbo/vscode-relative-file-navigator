@@ -40,12 +40,13 @@ module.exports = {
         },
       },
     ],
+    'prefer-destructuring': 'off',
     'import/prefer-default-export': 'off',
     'no-void': ['error', { allowAsStatement: true }],
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['src/test/**/*'],
+        devDependencies: ['**/*.test.ts'],
         peerDependencies: true,
       },
     ],
