@@ -31,12 +31,12 @@ Relative File Navigator can be installed via the VS Code [Marketplace](https://m
 
 ## TODO
 - [X] Add [localization](https://github.com/microsoft/vscode-l10n)
-- [ ] Add spanish translations
+- [X] Add spanish translations
 - [X] [Bundle extension](https://aka.ms/vscode-bundle-extension)
 - [X] Add tests
 - [ ] Add button and command to group directories and display them to the top
 - [ ] Add button to reset history and go to the directory of the currently open file
-- [?] Consider adding buttons to rename/delete items
+- [ ] Consider adding buttons to rename/delete items
 - [ ] Display file-type icons (not possible for now, keep an eye on: https://github.com/microsoft/vscode/issues/59826)
 
 ## Contributing
