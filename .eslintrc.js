@@ -18,7 +18,7 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['src/**/*'],
+      files: ['src/**/*', '__mocks__/**/*'],
       parserOptions: {
         project: true,
         tsconfigRootDir: __dirname,
@@ -46,7 +46,7 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['**/*.test.ts'],
+        devDependencies: ['**/*.test.ts', '__mocks__/**/*'],
         peerDependencies: true,
       },
     ],

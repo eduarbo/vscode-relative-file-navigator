@@ -4,8 +4,6 @@ import { QuickInputButtons } from 'vscode'
 
 import { getDirQuickPickCommonProps } from './dirQuickPickUtils'
 
-jest.mock('vscode')
-
 const parentDir = {
   buttons: [],
   isDirectory: true,

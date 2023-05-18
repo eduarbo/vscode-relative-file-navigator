@@ -1,3 +1,5 @@
+import type { PathLike } from 'fs'
+import type { FileHandle } from 'fs/promises'
 import { jest } from '@jest/globals'
 
 enum QuickInputButtonsEnum {
@@ -10,12 +12,10 @@ export const l10n = {
 }
 
 export const Uri = {
-  file: (f: any) => f,
+  file: (f: PathLike | FileHandle): PathLike | FileHandle => f,
   parse: jest.fn(),
 }
 
-export const ThemeIcon = jest.fn().mockImplementation((iconName) => {
-  return { iconName: iconName }
-})
+export const ThemeIcon = jest.fn().mockImplementation((iconName) => ({ iconName }))
 
 export const QuickInputButtons = QuickInputButtonsEnum
