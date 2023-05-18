@@ -3,29 +3,33 @@ import * as fs from 'fs'
 import { ThemeIcons } from 'vscode-ext-codicons'
 
 import { getDirQuickPickCommonProps, getCurrentDirPathFromHistory } from './dirQuickPickUtils'
+import type { DirQuickPickOptions, FileItem } from './dirQuickPickUtils'
 
-type FileItem = {
-  label: string
-  uri: vscode.Uri
-  isDirectory: boolean
-  description?: string
-  detail?: string
-}
-
-export async function createDirQuickPick(directoryPath: string) {
+export async function createDirQuickPick(directoryPath: string, globalState: vscode.Memento) {
   const quickPick = vscode.window.createQuickPick<FileItem>()
-  const history: string[] = [directoryPath]
+  const dirQuickOptions: DirQuickPickOptions = {
+    history: [directoryPath],
+    files: [],
+    groupDirectories: globalState.get('groupDirectories', false),
+  }
 
   const changeDirectory = async (props?: Partial<vscode.QuickPick<FileItem>>) => {
     try {
-      const currentDirPath = getCurrentDirPathFromHistory(history)
-      const files = await fs.promises.readdir(currentDirPath, { withFileTypes: true })
-      const commonProps = getDirQuickPickCommonProps(history, files)
+      const currentDirPath = getCurrentDirPathFromHistory(dirQuickOptions.history)
+      dirQuickOptions.files = await fs.promises.readdir(currentDirPath, { withFileTypes: true })
+      const commonProps = getDirQuickPickCommonProps(dirQuickOptions)
 
       Object.assign(quickPick, commonProps, props)
     } catch (error) {
       await handleError(vscode.l10n.t('Error reading directory'))
     }
+  }
+
+  const toggleGroupDirectories = async () => {
+    dirQuickOptions.groupDirectories = !dirQuickOptions.groupDirectories
+    await globalState.update('groupDirectories', dirQuickOptions.groupDirectories)
+    const commonProps = getDirQuickPickCommonProps(dirQuickOptions)
+    Object.assign(quickPick, commonProps)
   }
 
   await changeDirectory({
@@ -42,8 +46,11 @@ export async function createDirQuickPick(directoryPath: string) {
 
   quickPick.onDidTriggerButton(async (button) => {
     if (button === vscode.QuickInputButtons.Back) {
-      history.pop()
+      dirQuickOptions.history.pop()
       await changeDirectory()
+    }
+    if (button.iconPath === ThemeIcons.group_by_ref_type || button.iconPath === ThemeIcons.ungroup_by_ref_type) {
+      await toggleGroupDirectories()
     }
   })
 
@@ -51,7 +58,7 @@ export async function createDirQuickPick(directoryPath: string) {
     if (!selectedItem) return
 
     if (selectedItem.isDirectory) {
-      history.push(selectedItem.uri.fsPath)
+      dirQuickOptions.history.push(selectedItem.uri.fsPath)
       await changeDirectory()
     } else {
       await openFile(selectedItem.uri)
