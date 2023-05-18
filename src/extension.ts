@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     if (currentFilePath) {
       const currentDirPath = path.dirname(currentFilePath)
-      await createDirQuickPick(currentDirPath)
+      await createDirQuickPick(currentDirPath, context.globalState)
     } else {
       await vscode.window.showErrorMessage(vscode.l10n.t('No file open in the editor'))
     }

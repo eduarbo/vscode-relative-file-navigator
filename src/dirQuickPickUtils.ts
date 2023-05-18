@@ -3,15 +3,48 @@ import * as fs from 'fs'
 import * as path from 'path'
 import { ThemeIcons, codicons } from 'vscode-ext-codicons'
 
-export function getDirQuickPickCommonProps(history: string[], currentDirfiles: fs.Dirent[]) {
+export type DirQuickPickOptions = {
+  groupDirectories: boolean
+  files: fs.Dirent[]
+  history: string[]
+}
+
+export type FileItem = {
+  label: string
+  uri: vscode.Uri
+  isDirectory: boolean
+  description?: string
+  detail?: string
+}
+
+const groupDirectoriesButton = {
+  iconPath: ThemeIcons.group_by_ref_type,
+  tooltip: vscode.l10n.t('Group directories at the top'),
+}
+
+const ungroupDirectoriesButton = {
+  iconPath: ThemeIcons.ungroup_by_ref_type,
+  tooltip: vscode.l10n.t('Sort files and directories alphabetically'),
+}
+
+export function getDirQuickPickCommonProps(options: DirQuickPickOptions) {
+  const { groupDirectories, history } = options
   const dirPath = getCurrentDirPathFromHistory(history)
   const showBackButton = history.length > 1
+  const buttons = []
+  const items = getItems(dirPath, options)
+
+  if (showBackButton) {
+    buttons.push(vscode.QuickInputButtons.Back)
+  }
+
+  buttons.push(groupDirectories ? ungroupDirectoriesButton : groupDirectoriesButton)
 
   return {
     title: dirPath,
     value: '',
-    buttons: showBackButton ? [vscode.QuickInputButtons.Back] : [],
-    items: getItems(dirPath, currentDirfiles),
+    buttons,
+    items,
   }
 }
 
@@ -19,7 +52,8 @@ export function getCurrentDirPathFromHistory(history: string[]) {
   return history.slice(-1)[0]
 }
 
-function getItems(dirPath: string, files: fs.Dirent[]) {
+function getItems(dirPath: string, options: DirQuickPickOptions): FileItem[] {
+  const { files } = options
   const items = files.map((file) => {
     const isDirectory = file.isDirectory()
     // List of ThemeIcon ids that can be rendered inside labels and descriptions:
@@ -48,6 +82,25 @@ function getItems(dirPath: string, files: fs.Dirent[]) {
       uri: vscode.Uri.file(parentDirectoryPath),
       buttons: [],
     })
+  }
+
+  return arrangeDirQuickPickItems(items, options)
+}
+
+function arrangeDirQuickPickItems(items: FileItem[], options: DirQuickPickOptions) {
+  const { groupDirectories } = options
+
+  if (groupDirectories) {
+    const sortedItems = [...items]
+
+    sortedItems.sort((a, b) => {
+      if (a.isDirectory === b.isDirectory) {
+        return 0
+      }
+      return a.isDirectory ? -1 : 1
+    })
+
+    return sortedItems
   }
 
   return items

@@ -11,9 +11,13 @@ Relative File Navigator is a VSCode extension that allows you to easily access a
 ## Features
 
 - Quickly browse and open files in the same directory as the currently open file, it's perfect for navigating between related files in component-based projects
-- `Back` button for navigaing to previously opened folders
+  > ![Relative File Navigator Extension - Demo](https://github.com/eduarbo/vscode-relative-file-navigator/assets/335073/64147557-4208-4a33-a1a1-692bfa51c6c0)
 
-![Relative File Navigator Extension Demo](https://github.com/eduarbo/vscode-relative-file-navigator/assets/335073/d27376b7-f5ea-4e3f-afff-94f1fb165fff)
+- Back button for navigaing to previously opened folders
+  > ![Relative File Navigator Extension - Demo Back Button](https://github.com/eduarbo/vscode-relative-file-navigator/assets/335073/9e94a02b-ae61-4796-b53e-fcd8e5e6f700)
+
+- Toggle button to group directories at the top of the list, your selection persists across VSCode restarts for a consistent navigation experience
+  > ![Relative File Navigator Extension - Demo Group Directories Button](https://github.com/eduarbo/vscode-relative-file-navigator/assets/335073/c58dac58-5bc8-4ed6-a018-3a0beee6b273)
 
 ### Available Commands
 
@@ -35,8 +39,9 @@ Relative File Navigator can be installed via the [VS Code Marketplace](https://m
 - [X] Add spanish translations
 - [X] [Bundle extension](https://aka.ms/vscode-bundle-extension)
 - [X] Add tests
-- [ ] Add button and command to group directories and display them to the top
+- [X] Add button to group directories and display them to the top
 - [ ] Add button to reset history and go to the directory of the currently open file
+- [ ] Add option to hide excluded files from settings and/or gitignore
 - [ ] Display file-type icons (not possible for now, keep an eye on: https://github.com/microsoft/vscode/issues/59826)
 
 ## Contributing
