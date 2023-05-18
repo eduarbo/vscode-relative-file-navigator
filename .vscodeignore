@@ -2,10 +2,11 @@
 .github/
 .vscode/
 .vscode-test/
-assets/
+.husky/
 node_modules/
 out/
 src/
+jest.config.js
 .editorconfig
 **/.eslintrc.js
 .gitignore
