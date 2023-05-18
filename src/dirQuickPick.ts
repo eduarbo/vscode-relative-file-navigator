@@ -48,8 +48,7 @@ export async function createDirQuickPick(directoryPath: string) {
   })
 
   quickPick.onDidChangeSelection(async ([selectedItem]) => {
-    // this should never happen
-    if (!selectedItem) throw new Error('No item selected')
+    if (!selectedItem) return
 
     if (selectedItem.isDirectory) {
       history.push(selectedItem.uri.fsPath)
