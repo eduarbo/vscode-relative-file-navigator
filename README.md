@@ -1,10 +1,10 @@
 # Relative File Navigator
 
 [![Version](https://img.shields.io/visual-studio-marketplace/v/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
-[![Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
-[![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
-[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/eduarbo/relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
 [![License](https://img.shields.io/github/license/eduarbo/vscode-relative-file-navigator)](https://github.com/eduarbo/vscode-relative-file-navigator/blob/main/LICENSE)
+[![Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/eduarbo.relative-file-navigator?label=Marketplace%20Installs)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
+[![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/eduarbo.relative-file-navigator?label=Marketplace%20Downloads)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
+[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/eduarbo/relative-file-navigator?label=Open%20VSX%20Downloads)](https://open-vsx.org/extension/eduarbo/relative-file-navigator)
 
 Relative File Navigator is a VSCode extension that allows you to easily access and open files located in the same directory as the currently open file. This comes in handy when you're working on a file and need to access related files, such as navigating between style and implementation files in a component-based project.
 
