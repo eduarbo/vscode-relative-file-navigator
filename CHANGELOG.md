@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [0.3.1] - 2023-05-17
+
+### Changed
+- Update README
+- Update changelog (forgot to update it for v0.3.0)
+
+## [0.3.0] - 2023-05-17
+
+### Added
+- Spanish translations to enhance localization 🇲🇽
+- Continuous Integration setup to improve the development workflow
+- Publish Extension to the Open VSX Registry 🎉
+
+### Changed
+- Refactored the core implementation to make the code more testable and maintainable
+- Replaced the demo video in the documentation with a GIF for a quicker overview
+
+### Improved
+- Expanded test coverage by unit testing the core implementation
+
 ## [0.2.4] - 2023-05-05
 - Setup esbuild to generate the bundle file
 

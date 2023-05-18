@@ -36,7 +36,6 @@ Relative File Navigator can be installed via the VS Code [Marketplace](https://m
 - [X] Add tests
 - [ ] Add button and command to group directories and display them to the top
 - [ ] Add button to reset history and go to the directory of the currently open file
-- [ ] Consider adding buttons to rename/delete items
 - [ ] Display file-type icons (not possible for now, keep an eye on: https://github.com/microsoft/vscode/issues/59826)
 
 ## Contributing
