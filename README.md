@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/visual-studio-marketplace/v/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
 [![License](https://img.shields.io/github/license/eduarbo/vscode-relative-file-navigator)](https://github.com/eduarbo/vscode-relative-file-navigator/blob/main/LICENSE)
+[![Tests](https://img.shields.io/github/actions/workflow/status/eduarbo/vscode-relative-file-navigator/tests.yml?branch=main&label=Tests)](https://github.com/eduarbo/vscode-relative-file-navigator/actions/workflows/tests.yml?query=branch%3Amain+workflow%3A%22Run+Tests%22)
 
 Relative File Navigator is a VSCode extension that allows you to easily access and open files located in the same directory as the currently open file. This comes in handy when you're working on a file and need to access related files, such as navigating between style and implementation files in a component-based project.
 
@@ -11,7 +12,7 @@ Relative File Navigator is a VSCode extension that allows you to easily access a
 - Quickly browse and open files in the same directory as the currently open file, it's perfect for navigating between related files in component-based projects
 - `Back` button for navigaing to previously opened folders
 
-<video src="https://user-images.githubusercontent.com/335073/236550674-32b2edb1-5eef-4ff7-9615-7a15d6fbb643.mp4" controls title="Relative File Navigator extension Demo"></video>
+<video width="630" height="300" src="https://user-images.githubusercontent.com/335073/236550674-32b2edb1-5eef-4ff7-9615-7a15d6fbb643.mp4" title="Relative File Navigator extension Demo"></video>
 
 ### Available Commands
 
