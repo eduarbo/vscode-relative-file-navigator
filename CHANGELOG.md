@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [0.3.2] - 2023-05-17
+
+### Changed
+- Updated the README to include a link for downloading the extension from the Open VSX Registry
+
 ## [0.3.1] - 2023-05-17
 
 ### Changed
