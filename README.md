@@ -1,9 +1,10 @@
 # Relative File Navigator
 
 [![Version](https://img.shields.io/visual-studio-marketplace/v/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
+[![Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
+[![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/eduarbo.relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
+[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/eduarbo/relative-file-navigator)](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator)
 [![License](https://img.shields.io/github/license/eduarbo/vscode-relative-file-navigator)](https://github.com/eduarbo/vscode-relative-file-navigator/blob/main/LICENSE)
-[![Tests](https://img.shields.io/github/actions/workflow/status/eduarbo/vscode-relative-file-navigator/tests.yml?branch=main&label=Tests)](https://github.com/eduarbo/vscode-relative-file-navigator/actions/workflows/tests.yml?query=branch%3Amain+workflow%3A%22Run+Tests%22)
 
 Relative File Navigator is a VSCode extension that allows you to easily access and open files located in the same directory as the currently open file. This comes in handy when you're working on a file and need to access related files, such as navigating between style and implementation files in a component-based project.
 
@@ -20,7 +21,7 @@ Relative File Navigator is a VSCode extension that allows you to easily access a
 
 ## Installation
 
-Relative File Navigator can be installed via the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator).
+Relative File Navigator can be installed via the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=eduarbo.relative-file-navigator) or [Open VSX Registry](https://open-vsx.org/extension/eduarbo/relative-file-navigator).
 
 ## Usage
 
