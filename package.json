@@ -56,6 +56,7 @@
   "devDependencies": {
     "@jest/globals": "^29.5.0",
     "@types/glob": "^8.1.0",
+    "@types/micromatch": "^4.0.2",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
     "@types/vscode": "^1.77.0",
@@ -77,6 +78,7 @@
   },
   "dependencies": {
     "@vscode/l10n-dev": "^0.0.25",
+    "micromatch": "^4.0.5",
     "vscode-ext-codicons": "^1.5.0"
   }
 }
