@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [0.5.0] - 2023-05-24
+
+### Added
+- Added functionality to filter the files and directories based on the user's `files.exclude` settings
+
 ## [0.4.0] - 2023-05-18
 
 ### Added

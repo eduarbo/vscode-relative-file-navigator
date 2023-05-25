@@ -40,8 +40,7 @@ Relative File Navigator can be installed via the [VS Code Marketplace](https://m
 - [X] [Bundle extension](https://aka.ms/vscode-bundle-extension)
 - [X] Add tests
 - [X] Add button to group directories and display them to the top
-- [ ] Add button to reset history and go to the directory of the currently open file
-- [ ] Add option to hide excluded files from settings and/or gitignore
+- [X] Hide excluded files from settings
 - [ ] Display file-type icons (not possible for now, keep an eye on: https://github.com/microsoft/vscode/issues/59826)
 
 ## Contributing
