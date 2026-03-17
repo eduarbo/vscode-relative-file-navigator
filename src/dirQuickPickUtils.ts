@@ -1,7 +1,6 @@
 import * as vscode from 'vscode'
 import * as fs from 'fs'
 import * as path from 'path'
-import { ThemeIcons, codicons } from 'vscode-ext-codicons'
 
 export type DirQuickPickOptions = {
   groupDirectories: boolean
@@ -9,21 +8,19 @@ export type DirQuickPickOptions = {
   history: string[]
 }
 
-export type FileItem = {
-  label: string
+export type FileItem = vscode.QuickPickItem & {
   uri: vscode.Uri
   isDirectory: boolean
-  description?: string
-  detail?: string
+  buttons: vscode.QuickInputButton[]
 }
 
-const groupDirectoriesButton = {
-  iconPath: ThemeIcons.group_by_ref_type,
+const groupDirectoriesButton: vscode.QuickInputButton = {
+  iconPath: new vscode.ThemeIcon('group-by-ref-type'),
   tooltip: vscode.l10n.t('Group directories at the top'),
 }
 
-const ungroupDirectoriesButton = {
-  iconPath: ThemeIcons.ungroup_by_ref_type,
+const ungroupDirectoriesButton: vscode.QuickInputButton = {
+  iconPath: new vscode.ThemeIcon('ungroup-by-ref-type'),
   tooltip: vscode.l10n.t('Sort files and directories alphabetically'),
 }
 
@@ -56,17 +53,11 @@ function getItems(dirPath: string, options: DirQuickPickOptions): FileItem[] {
   const { files } = options
   const items = files.map((file) => {
     const isDirectory = file.isDirectory()
-    // List of ThemeIcon ids that can be rendered inside labels and descriptions:
-    // https://code.visualstudio.com/api/references/icons-in-labels#icon-listing
-    const icon = isDirectory ? codicons.folder : codicons.list_selection
+    const icon = isDirectory ? '$(folder)' : '$(list-selection)'
     const label = `${icon} ${file.name}`
-    // TODO use fs.state to bring the file size and other useful data that
-    // can be displayed in `description` or `detail` props. Just take into
-    // account that this could increase the load time
     const uri = vscode.Uri.file(path.join(dirPath, file.name))
-    // const buttons = !isDirectory ? [new vscode.ThemeIcon('split-horizontal')] : []
-    const buttons = !isDirectory
-      ? [{ iconPath: ThemeIcons.split_horizontal, tooltip: vscode.l10n.t('Open to the side') }]
+    const buttons: vscode.QuickInputButton[] = !isDirectory
+      ? [{ iconPath: new vscode.ThemeIcon('split-horizontal'), tooltip: vscode.l10n.t('Open to the side') }]
       : []
 
     return { label, uri, isDirectory, buttons }
@@ -77,7 +68,7 @@ function getItems(dirPath: string, options: DirQuickPickOptions): FileItem[] {
 
   if (parentDirectoryPath !== dirPath) {
     items.unshift({
-      label: `${codicons.folder} ..`,
+      label: '$(folder) ..',
       isDirectory: true,
       uri: vscode.Uri.file(parentDirectoryPath),
       buttons: [],

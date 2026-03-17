@@ -1,7 +1,7 @@
 import * as vscode from 'vscode'
 import * as fs from 'fs'
+import * as path from 'path'
 import * as micromatch from 'micromatch'
-import { ThemeIcons } from 'vscode-ext-codicons'
 
 import { getDirQuickPickCommonProps, getCurrentDirPathFromHistory } from './dirQuickPickUtils'
 import type { DirQuickPickOptions, FileItem } from './dirQuickPickUtils'
@@ -19,28 +19,18 @@ export async function createDirQuickPick(directoryPath: string, globalState: vsc
       const currentDirPath = getCurrentDirPathFromHistory(dirQuickOptions.history)
       const allFiles = await fs.promises.readdir(currentDirPath, { withFileTypes: true })
 
-      // Get the exclude settings from VS Code's configuration
       const excludeSettings = vscode.workspace.getConfiguration('files').get('exclude') as { [key: string]: boolean }
 
-      // Filter files/directories based on the exclude settings
       dirQuickOptions.files = allFiles.filter((file) => {
-        const filePath = vscode.Uri.file(`${currentDirPath}/${file.name}`).fsPath
-
-        // If any of the exclude patterns match, we exclude this file/directory
-        let isExcluded = false
-        Object.entries(excludeSettings).forEach(([pattern, shouldExclude]) => {
-          if (shouldExclude && micromatch.isMatch(filePath, pattern)) {
-            isExcluded = true
-          }
-        })
-
-        // If none of the patterns matched, this file/directory is included
-        return !isExcluded
+        const filePath = path.join(currentDirPath, file.name)
+        return !Object.entries(excludeSettings).some(
+          ([pattern, enabled]) => enabled && micromatch.isMatch(filePath, pattern),
+        )
       })
 
       const commonProps = getDirQuickPickCommonProps(dirQuickOptions)
       Object.assign(quickPick, commonProps, props)
-    } catch (error) {
+    } catch {
       await handleError(vscode.l10n.t('Error reading directory'))
     }
   }
@@ -57,7 +47,7 @@ export async function createDirQuickPick(directoryPath: string, globalState: vsc
   })
 
   quickPick.onDidTriggerItemButton(async ({ button, item }) => {
-    if (button.iconPath === ThemeIcons.split_horizontal) {
+    if ((button.iconPath as vscode.ThemeIcon).id === 'split-horizontal') {
       await openFile(item.uri, {
         viewColumn: vscode.ViewColumn.Beside,
       })
@@ -69,7 +59,8 @@ export async function createDirQuickPick(directoryPath: string, globalState: vsc
       dirQuickOptions.history.pop()
       await changeDirectory()
     }
-    if (button.iconPath === ThemeIcons.group_by_ref_type || button.iconPath === ThemeIcons.ungroup_by_ref_type) {
+    const iconId = (button.iconPath as vscode.ThemeIcon)?.id
+    if (iconId === 'group-by-ref-type' || iconId === 'ungroup-by-ref-type') {
       await toggleGroupDirectories()
     }
   })
@@ -94,11 +85,11 @@ export async function createDirQuickPick(directoryPath: string, globalState: vsc
 async function openFile(filePath: vscode.Uri, options?: vscode.TextDocumentShowOptions) {
   try {
     await vscode.window.showTextDocument(filePath, options)
-  } catch (error: unknown) {
+  } catch {
     await handleError(vscode.l10n.t('Error opening the file'))
   }
 }
 
-async function handleError(message: string, error?: unknown) {
-  await vscode.window.showErrorMessage(error instanceof Error ? error.message : message)
+async function handleError(message: string) {
+  await vscode.window.showErrorMessage(message)
 }

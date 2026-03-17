@@ -169,6 +169,8 @@ function mockDirent(isFile: boolean, name: string): fs.Dirent {
     isSocket: jest.fn().mockReturnValue(false),
     isSymbolicLink: jest.fn().mockReturnValue(false),
     name,
+    parentPath: '',
+    path: '',
   } as fs.Dirent
 }
 
